@@ -1,0 +1,28 @@
+# Runs the API against a real MongoDB container: `docker compose up --build`,
+# then start the frontend with `cd client && npm run dev`.
+services:
+  mongo:
+    image: mongo:7
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+
+  api:
+    build: ./server
+    ports:
+      - "4000:4000"
+    environment:
+      NODE_ENV: production
+      PORT: 4000
+      MONGODB_URI: mongodb://mongo:27017/gymfuel
+      JWT_SECRET: local-docker-secret-change-me
+      CLIENT_URL: http://localhost:5173
+      ADMIN_PASSWORD: ChangeMe-Admin-123
+      STRIPE_SECRET_KEY: ${STRIPE_SECRET_KEY:-}
+      STRIPE_WEBHOOK_SECRET: ${STRIPE_WEBHOOK_SECRET:-}
+    depends_on:
+      - mongo
+
+volumes:
+  mongo-data:

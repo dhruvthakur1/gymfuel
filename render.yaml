@@ -1,0 +1,25 @@
+# Render Blueprint for the API: https://render.com/docs/blueprint-spec
+services:
+  - type: web
+    name: gymfuel-api
+    runtime: docker
+    rootDir: server
+    plan: free
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: JWT_SECRET
+        generateValue: true
+      - key: CURRENCY
+        value: inr
+      - key: MONGODB_URI
+        sync: false
+      - key: CLIENT_URL
+        sync: false
+      - key: STRIPE_SECRET_KEY
+        sync: false
+      - key: STRIPE_WEBHOOK_SECRET
+        sync: false
+      - key: ADMIN_PASSWORD
+        sync: false
