@@ -19,11 +19,11 @@ function Navbar() {
     <header className="nav">
       <div className="container nav-inner">
         <Link to="/" className="logo" aria-label="GymFuel home">
-          <svg viewBox="0 0 64 64" width="28" height="28" aria-hidden="true">
-            <rect width="64" height="64" rx="14" fill="#c6f432" />
-            <path d="M36 8 18 36h12l-4 20 20-30H34z" fill="#0e0f11" />
+          <svg viewBox="0 0 64 64" width="30" height="30" aria-hidden="true">
+            <rect width="64" height="64" rx="16" fill="#141414" />
+            <path d="M36 10 19 36h11l-4 18 19-28H34z" fill="#fff" />
           </svg>
-          GYMFUEL
+          GymFuel
         </Link>
 
         <form className="nav-search" onSubmit={onSearch} role="search">

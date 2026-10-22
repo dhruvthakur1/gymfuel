@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { formatPrice } from '../format.js';
+import { categoryColor, formatPrice } from '../format.js';
 import ProductArt from './ProductArt.jsx';
 
 export function Stars({ rating, count }) {
@@ -35,8 +35,8 @@ export function ErrorNote({ error }) {
 export function ProductCard({ product }) {
   const outOfStock = product.stock === 0;
   return (
-    <Link to={`/products/${product.slug}`} className={`card product-card ${outOfStock ? 'is-out' : ''}`}>
-      <div className="product-card-art">
+    <Link to={`/products/${product.slug}`} className={`product-card ${outOfStock ? 'is-out' : ''}`}>
+      <div className="product-card-art" style={{ background: categoryColor(product.category).tint }}>
         <ProductArt product={product} />
         {product.featured && <span className="tag tag-hot">Bestseller</span>}
         {outOfStock && <span className="tag tag-out">Out of stock</span>}

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { api } from '../api.js';
-import { CATEGORY_LABELS, formatPrice } from '../format.js';
+import { CATEGORY_LABELS, categoryColor, formatPrice } from '../format.js';
 import { useCart } from '../context/CartContext.jsx';
 import ProductArt from '../components/ProductArt.jsx';
 import { ErrorNote, QuantityStepper, Spinner, Stars } from '../components/ui.jsx';
@@ -52,7 +52,7 @@ export default function ProductPage() {
       </nav>
 
       <div className="product-layout">
-        <div className="product-art-large card">
+        <div className="product-art-large" style={{ background: categoryColor(product.category).tint }}>
           <ProductArt product={product} />
         </div>
 

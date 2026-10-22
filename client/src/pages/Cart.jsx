@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import { api } from '../api.js';
-import { FREE_SHIPPING_THRESHOLD, formatPrice } from '../format.js';
+import { FREE_SHIPPING_THRESHOLD, categoryColor, formatPrice } from '../format.js';
 import { useAuth } from '../context/AuthContext.jsx';
 import { useCart } from '../context/CartContext.jsx';
 import ProductArt from '../components/ProductArt.jsx';
@@ -72,7 +72,7 @@ export default function Cart() {
         <section className="card cart-items">
           {cart.items.map((item) => (
             <div key={item.key} className="cart-item">
-              <Link to={`/products/${item.slug}`} className="cart-item-art">
+              <Link to={`/products/${item.slug}`} className="cart-item-art" style={{ background: categoryColor(item.category).tint }}>
                 <ProductArt product={item} />
               </Link>
               <div className="cart-item-info">

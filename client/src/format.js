@@ -18,11 +18,14 @@ export const CATEGORY_LABELS = {
   vitamins: 'Vitamins & Health',
 };
 
+// tint: soft background behind product art; tone: the label colour on the tub.
 export const CATEGORY_COLORS = {
-  protein: '#c6f432',
-  'pre-workout': '#ff7a1a',
-  creatine: '#38d6f5',
-  'amino-acids': '#a78bfa',
-  'mass-gainer': '#fbbf24',
-  vitamins: '#f472b6',
+  protein: { tint: '#edf2e8', tone: '#b7cfa5' },
+  'pre-workout': { tint: '#f9eee5', tone: '#eeb58e' },
+  creatine: { tint: '#e7eff4', tone: '#a3c4d9' },
+  'amino-acids': { tint: '#efecf6', tone: '#c4b8e4' },
+  'mass-gainer': { tint: '#f6f1e2', tone: '#e2cb8c' },
+  vitamins: { tint: '#f7ebee', tone: '#e5b3c0' },
 };
+
+export const categoryColor = (category) => CATEGORY_COLORS[category] || CATEGORY_COLORS.protein;

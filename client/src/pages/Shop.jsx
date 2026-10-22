@@ -1,7 +1,10 @@
 import { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { api } from '../api.js';
-import { CATEGORY_COLORS, CATEGORY_LABELS } from '../format.js';
+import { CATEGORY_LABELS, categoryColor } from '../format.js';
+import ProductArt from '../components/ProductArt.jsx';
+
+const HERO_PRODUCT = { slug: 'hero', brand: 'GymFuel', category: 'protein', size: '2 kg' };
 import { ErrorNote, ProductCard, Spinner } from '../components/ui.jsx';
 
 const SORT_OPTIONS = [
@@ -65,30 +68,41 @@ export default function Shop() {
   return (
     <>
       {!isFiltered && filters.page === 1 && (
-        <section className="hero">
-          <div>
-            <span className="eyebrow accent">Sports nutrition, delivered</span>
-            <h1>
-              Fuel every rep.
-              <br />
-              <span className="accent">Recover harder.</span>
-            </h1>
-            <p className="muted">
-              Lab-tested whey, creatine, pre-workouts and more from the brands lifters trust. Free shipping on orders
-              over ₹2,999.
-            </p>
-          </div>
-          <div className="hero-cats">
+        <>
+          <section className="hero">
+            <div className="hero-copy">
+              <span className="eyebrow">Sports nutrition</span>
+              <h1>
+                Fuel every rep.
+                <br />
+                <em>Recover better.</em>
+              </h1>
+              <p className="muted">
+                Lab-tested whey, creatine and pre-workouts from the brands serious lifters trust. Free shipping on
+                orders over ₹2,999.
+              </p>
+              <div className="hero-actions">
+                <button className="btn btn-primary btn-lg" onClick={() => update({ sort: 'rating' })}>Shop bestsellers</button>
+                <button className="btn btn-ghost btn-lg" onClick={() => update({ category: 'protein' })}>Explore protein</button>
+              </div>
+            </div>
+            <div className="hero-visual" aria-hidden="true">
+              <ProductArt product={HERO_PRODUCT} />
+            </div>
+          </section>
+
+          <section className="hero-cats" aria-label="Shop by category">
             {Object.entries(CATEGORY_LABELS).map(([value, label]) => (
-              <button key={value} className="hero-cat" style={{ '--cat': CATEGORY_COLORS[value] }} onClick={() => update({ category: value })}>
-                {label}
+              <button key={value} className="hero-cat" style={{ background: categoryColor(value).tint }} onClick={() => update({ category: value })}>
+                <span>{label}</span>
+                <span className="hero-cat-arrow" aria-hidden="true">→</span>
               </button>
             ))}
-          </div>
-        </section>
+          </section>
+        </>
       )}
 
-      <div className="shop">
+      <div className={`shop ${!isFiltered && filters.page === 1 ? 'has-hero' : ''}`}>
         <aside className="filters" aria-label="Filters">
           <div className="filter-group">
             <h4>Category</h4>
