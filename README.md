@@ -5,10 +5,12 @@
 A full-stack store for fitness supplements: customers browse and filter products, pay through Stripe Checkout, and track
 their orders; admins manage the catalogue and fulfil orders.
 
-**Live demo:** _add your Vercel URL here_ · **API:** _add your Render URL here_
+**Live demo:** [gymfuel-nu.vercel.app](https://gymfuel-nu.vercel.app) ·
+**API health:** [gymfuel-api.onrender.com/api/health](https://gymfuel-api.onrender.com/api/health)
 
 > Try it without signing up: on the login page click **Demo customer** or **Demo admin (read-only)**.
 > Payments run in Stripe test mode — use card `4242 4242 4242 4242`, any future expiry date and any CVC.
+> The API is on Render's free tier, so the very first request after a quiet spell can take ~30 seconds.
 
 ## Features
 
