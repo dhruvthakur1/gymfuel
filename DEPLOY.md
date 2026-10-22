@@ -49,11 +49,16 @@ Keep a note open while you go; you'll collect: `MONGODB_URI`, the Render URL, th
    `JWT_SECRET` is generated automatically.
 4. Wait for the deploy, then open `https://<your-service>.onrender.com/api/health`. You should see
    `{"status":"ok","db":"connected","payments":"stripe"}`.
-5. Load the demo products and accounts into Atlas. In Render open the service's **Shell** tab and run:
-   ```bash
-   node src/seed.js
+5. Load the demo products and accounts into Atlas from your computer (Render's free tier has no shell).
+   In PowerShell:
+   ```powershell
+   cd server
+   $env:MONGODB_URI = "<your connection string>"
+   $env:ADMIN_PASSWORD = "<a strong password for your private admin>"
+   npm run seed
    ```
-   (Or run it from your computer: `cd server && MONGODB_URI="..." ADMIN_PASSWORD="..." npm run seed`.)
+   You should see `Seeded 14 products and 3 users`. Close the window afterwards so the values aren't kept.
+   (You can do this before step 4 too — it only needs the database.)
 
 ## 5. Vercel (frontend)
 
