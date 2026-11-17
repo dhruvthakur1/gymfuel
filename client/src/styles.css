@@ -126,7 +126,7 @@ select {
 .chip.is-active { background: var(--ink); color: #fff; }
 .chips { display: flex; flex-wrap: wrap; gap: 8px; }
 .chips .chip { border-color: var(--border-strong); color: var(--text); }
-.chips .chip.is-active { border-color: var(--ink); }
+.chips .chip.is-active { border-color: var(--ink); color: #fff; }
 
 /* ---- Cards & alerts ---- */
 .card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); }
