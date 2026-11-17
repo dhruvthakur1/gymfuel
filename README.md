@@ -14,6 +14,21 @@ date and any CVC.
 
 > The API sleeps on Render's free tier. If the first page load hangs for ~30 seconds, that's it waking up.
 
+![GymFuel storefront](docs/screenshots/home.png)
+
+<table>
+  <tr>
+    <td width="33%"><img src="docs/screenshots/product.png" alt="Product page with flavour options"></td>
+    <td width="33%"><img src="docs/screenshots/cart.png" alt="Cart with server-calculated order summary"></td>
+    <td width="33%"><img src="docs/screenshots/admin.png" alt="Admin dashboard with revenue and orders"></td>
+  </tr>
+  <tr>
+    <td align="center"><sub>Product page</sub></td>
+    <td align="center"><sub>Cart</sub></td>
+    <td align="center"><sub>Admin dashboard (read-only demo)</sub></td>
+  </tr>
+</table>
+
 ---
 
 ## Why I built it
